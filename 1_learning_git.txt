@@ -1,0 +1,69 @@
+###--------##file status  lifecycle --------##----in repo-------------####
+1)untracked   2)unmodified   3)modified      4)staged
+
+
+1)untracked ko traked karne ke liye =>$git init use ->then all file under these will become==>tracked
+2)unmodified ko modified karne ke liye =>file me  kuchh changes karo =>so that some modification is happened
+
+3)after modification =>changes ko repo me reflect karne liye  use
+$git add --a    #so all changes will go under staged
+
+then use another commond for to reflect these changes into our repo
+$git commit -m"message"
+
+
+
+
+git status
+ git init  
+ #->initilise the git repo for tracking
+ #->these means a untracked repo
+ ->by these there will a hidden ( .git) file will will created for to track our project
+
+#do some change in your file -->then
+
+1)staging  
+#staginng means =>all file added under repo is unmodified
+ git add --a  #means adding all file of these folder into the git repo
+ git add text.txt #add only specified file name
+
+2)commit
+git commit -m"some message about these changes" =>so these file came under modified file
+
+3)git status #->for user to see the currect working of git-status
+
+4)git log #->to see what changes have done and when?
+
+##very dangerous commond ->$ rm -rf .git
+$rm -rf .git
+#->rm -rf command deletes directory forcefully. It means a file or directory will be deleted anyhow even if it has
+read-only permission. To delete a file forcefully, use command: rm -f <file name>
+
+#->these will delete the hidden file  (.git) =>which is traking our project
+so will lost all our track i.e we will lost our git repo itself
+
+-------------------------------------
+$ git clone https://github.com/tensorflow/tensorflow.git
+git clone URL-name "name of these file"  #->"name of these file is not necessary=>syntax
+
+##commond
+1)$pwd
+
+#this will show pwd=present working diretory->i.e present file path
+
+2)$ls
+
+#this will list out the different fle in our git repo
+
+3)$ cd tensorflow/
+
+#this will change our file-path and take us into respective file-path
+
+
+--------------------------------------git ignore----------------------------------
+###to ignore some file for tracking
+#making new file in ours folder
+    ->$ touch error.log
+
+#to ignore
+$touch .gitignore

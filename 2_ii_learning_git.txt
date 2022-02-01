@@ -1,0 +1,165 @@
+git status
+ git init  #->initilise the git repo for tracking
+
+#do some change in your file -->then
+
+1)staging
+ git add --a  #means adding all file of these folder into the git repo
+ git add text.txt #add only specified file name
+
+2)commit
+git commit -m"some message about these changes"
+
+3)git status #->for user to see the currect working of git-status
+
+4)git log #->to see what changes have done and when?
+
+------------------------------
+#we can do untracked any particular file/directory/folder
+by making .gitignore==>$git touch .gitignore
+
+include all file in it(.gitignore) which u want to ignore
+ ->for multiple version of same type of file use===>*.log   #got .log type file
+ ->for to ignore any directory use--->ditrctoryname/        #ignoring outer and inner both file of this dirctories
+ ->for to ignore only outer directory use--->/ditrctoryname/
+
+->empty file/directory is not going to tracked any more
+
+---------------------------------
+1)to compare bet working area and staging area use-->
+$git diff
+
+2)to compare bet staged area and previous commited area
+$git diff --staged
+
+---------------------------------
+normally->i>some changes in working directory
+	ii)using git add --a==>added  to staging area
+	iii)usig git commit -m"" ==>commited
+
+1)*****how to skip staging area and go directly to the commit *****
+in these case->i)some changes in working directory (like update in file,delete a file,making new file<-not work_-as it is untracked-> etc)
+		<--But atlest those should  tracked atleast one time-->
+	      ii)direct commit using==>giit commit -a -m"Direct commited"
+
+Q.Using “git commit -a”
+Ans:If you intend that your next commit should record all modifications of tracked files in the working tree 
+and record all removals of files that have been removed from the working tree with rm (as opposed to git rm),
+ use git commit -a, as it will automatically notice and record all removals. You can also have a similar effect 
+without committing by using git add -u.
+
+----------------------------------
+1)<i>-->on mannualy changing/updating fileName in main directory->
+git looks it like i) oneFile is deleted
+		 ii)anotherFile is Created/added
+*********But these is not true case as we have only renamed our exiting file******git realise it on staging stage*****
+<ii>-->using git changing filename=>directly take us on staging area using mv(move)
+	$git mv OldFileName.txt newFileName.txt
+	==>rename+staged
+
+2)to direct delete/remove(rm) one file and also go t staging area inside git 
+Does git rm -- cached delete the file?
+--cached. Removes the file only from the Git repository, but not from the filesystem. By default, 
+the git rm command deletes files both from the Git repository as well as the filesystem
+
+-->$git rm fileName
+==>delete+staged
+==>on doing so we delete one file and auto go to staged area without using  ($git add .)commond
+
+***on doing manually in directory first we delete file -->then use $git add --a(staged)-->then $git commit -m""***long h***
+
+3)*Tracked file ko *untracked karne ke liye 
+---The –cached flag lets you delete a file from a Git repository without deleting it on your file system.---
+
+$git rm --cached FleName
+example==>$git rm --cached mickle.txt
+	-->after these it will under untracked-file
+==>we can also ignore ->untracked file --->by including it in .ignorefile
+
+
+------------------------------------------cloning git repo from github----------------------------------------
+git clone https://github.com/pandas-dev/pandas.git myclonefile
+
+---------------(git log =>extensions)-------------------------------------------
+-->to see what,when and who have changes in our repo
+$git log -p
+
+-->to see n number of changes in repo
+$git log -p -n
+examle->$git log -p -3
+
+--->>***to come out of present git log -p---****use ($ q) commond***---
+
+-->$git log --stat
+->this commond use to see what exactly change have done in ->short form
+
+-->--format=<format>
+Pretty-print the contents of the commit logs in a given format, where <format> can be one of oneline, short, medium, full, fuller, reference, email, raw,
+example :$git log --pretty=oneline
+
+------****(git log time)****-------
+$git log --since=2.weeks
+$git log --since=2.days
+$git log --since=2.years
+
+------***specific format in git log***-------
+$git log --pretty=format:"%h -->%ae"
+$git log --pretty=format:"%an -->%ae"
+-->this will print    :(auther_name -->auther_email)
+
+Placeholders that expand to information extracted from the commit:
+
+%H
+commit hash
+
+%h
+abbreviated commit hash
+
+%T
+tree hash
+
+%t
+abbreviated tree hash
+
+%P
+parent hashes
+
+%p
+abbreviated parent hashes
+
+%an
+author name
+
+%aN
+author name (respecting .mailmap, see git-shortlog[1] or git-blame[1])
+
+%ae
+author email
+
+%aE
+author email (respecting .mailmap, see git-shortlog[1] or git-blame[1])
+
+%al
+author email local-part (the part before the @ sign)
+
+%aL
+author local-part (see %al) respecting .mailmap, see git-shortlog[1] or git-blame[1])
+
+%ad
+author date (format respects --date= option)
+
+%aD
+author date, RFC2822 style
+
+%ar
+author date, relative
+
+%at
+author date, UNIX timestamp
+
+---------want to change in commit->ka message and other things-->use---------
+$git commit --amend
+-->after these a new git-dextop will open =>in these new page type
+1)type i  for to enable us to write on it
+2)for to save press [Esc->:->wq ]below in thes new page itself
+

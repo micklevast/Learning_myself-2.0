@@ -1,0 +1,65 @@
+git status
+ git init  #->initilise the git repo for tracking
+
+#do some change in your file -->then
+
+1)staging
+ git add --a  #means adding all file of these folder into the git repo
+ git add text.txt #add only specified file name
+
+2)commit
+git commit -m"some message about these changes"
+
+3)git status #->for user to see the currect working of git-status
+
+4)git log #->to see what changes have done and when?
+
+------------------------------
+#we can do untracked any particular file/directory/folder
+by making .gitignore==>$git touch .gitignore
+
+include all file in it(.gitignore) which u want to ignore
+ ->for multiple version of same type of file use===>*.log   #got .log type file
+ ->for to ignore any directory use--->ditrctoryname/        #ignoring outer and inner both file of this dirctories
+ ->for to ignore only outer directory use--->/ditrctoryname/
+
+->empty file/directory is not going to tracked any more
+
+---------------------------------
+1)to compare bet working area and staging area use-->
+$git diff
+
+2)to compare bet staged area and previous commited area
+$git diff --staged
+
+---------------------------------
+normally->i>some changes in working directory
+	ii)using git add --a==>added  to staging area
+	iii)usig git commit -m"" ==>commited
+
+1)*****how to skip staging area and directly go to commit *****
+in these case->i)some changes in working directory (like update in file,delete a file,making new file<-not work_-as it is untracked-> etc)
+		<--But atlest those should  tracked atleast one time-->
+	      ii)direct commit using==>giit commit -a -m"Direct commited"
+
+----------------------------------
+1)<i>-->on mannualy changing/updating fileName in main directory->
+git looks it like i) oneFile is deleted
+		 ii)anotherFile is Created/added
+*********But these is true case as we have only renamed our exiting file******git realise it on staging stage*****
+<ii>-->using git changing filename=>directly take us on staging area using mv(move)
+	$git mv OldFileName.txt newFileName.txt
+	==>rename+staged
+
+2)to direct delete/remove(rm) one file and also go t staging area inside git 
+-->$git rm fileName
+==>delete+staged
+==>on doing so we delete one file and auto go to staged area without using  ($git add .)commond
+
+***on doing manually in directory first we delete file -->then use $git add --a(staged)-->then $git commit -m""***long h***
+
+3)*Tracked file ko *untracked karne ke liye 
+$git rm --cached FleName
+example==>$git rm --cached mickle.txt
+	-->after these it will under untracked-file
+==>we can also ignore ->untracked file --->by including it in .ignorefile

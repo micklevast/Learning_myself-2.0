@@ -1,0 +1,53 @@
+remote-->is server where we put our commit/history of directory
+
+What is origin and remote in git?
+"origin" is the name of the remote repository where you want to publish you commits. By convention, 
+the default remote repository is called "origin", but you can work with several remotes (with different names) 
+as the same time. More information here (for example): gitref.org/remotes
+
+-->$git remote
+-->$ git remote add origin git@github.com:micklevast/vishal_learningGit.git
+
+here origin==git@github.com:micklevast/vishal_learningGit.git
+-->$ git remote -v
+origin  git@github.com:micklevast/vishal_learningGit.git (fetch)
+origin  git@github.com:micklevast/vishal_learningGit.git (push)
+
+==>generate ssh-key 
+-->$ ssh-keygen -t ed25519 -C "visindra2000@gmail.com"
+*get reference of google/github-docs
+
+after that push into yuor repo
+-->$ git push -u origin master
+
+------------------------------------------------------------------
+-----git-alias(nickname)----
+if we want to reduce our git commond size==>it can be done in git by
+1>-->$ git coonfig --global alias.st.status
+after that we can use (st) in place of (status)
+therefore-->($ git status==$ git st)
+
+2>-->git config --global alias.cm commit
+therfore ==>($git commit -m""==$git cm -m"")
+
+3>-->want to resize commond of restaged of tracked file->to untracked file
+*generally for to restore staged file
+->$git restore --staged Filename
+
+*to reduce above commond
+i>-->$git config --global alias.unstage 'restore --staged --'
+then ($git restore --staged Filename)==($git unstage filename)
+i.e in the place of (restore --staged) we can use (unstage) only so that to reduce size of commond for unstaged
+
+4>-->want to reduce size of ($git log -p -1) to see the last commit in our directory
+
+==>$git config --global alias.last_cm 'log -p -1'
+so we can use ($git log -p -1)==($git last_cm)
+
+----------------------------------making (braches) in github---------------------------------
+
+
+
+
+
+

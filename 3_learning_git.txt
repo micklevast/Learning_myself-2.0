@@ -1,0 +1,10 @@
+----------to unstaged =>the staged file-----
+$git restore --staged Flename
+
+----------to go in previous stage of particular fileafter somme changes init--------------
+1)if we have delete all content of particular file then to restore them from previous commit
+we will use=>$git checkout -- Filename
+example----->$git checkout --mickle.txt
+
+2)if we have done multiple change in pwd and want to go in previous commit stage then use
+we will use=>$git checkout -f
