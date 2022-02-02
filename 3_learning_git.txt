@@ -4,7 +4,24 @@ $git restore --staged Flename
 ----------to go in previous stage of particular fileafter somme changes init--------------
 1)if we have delete all content of particular file then to restore them from previous commit
 we will use=>$git checkout -- Filename
-example----->$git checkout --mickle.txt
+example----->$git checkout -- mickle.txt   ###space is necessary bet -- and Filename
 
 2)if we have done multiple change in pwd and want to go in previous commit stage then use
 we will use=>$git checkout -f
+
+**-----------
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --guess               second guess 'git checkout <no-such-branch>' (default)
+    --overlay             use overlay mode (default)
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge or diff3)
+    -d, --detach          detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    -f, --force           force checkout (throw away local modifications)
+**-----------

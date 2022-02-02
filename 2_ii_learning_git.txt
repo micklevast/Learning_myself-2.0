@@ -10,6 +10,10 @@ git status
 2)commit
 git commit -m"some message about these changes"
 
+*The term HEAD refers to the current commit you are viewing. By default, you'll view the tip of the master branch on a repository,
+*unless the main branch of your repository has a different name. The tip of the master branch is the most recent commit 
+*on the main branch of your codebase.
+
 3)git status #->for user to see the currect working of git-status
 
 4)git log #->to see what changes have done and when?
@@ -82,7 +86,9 @@ git clone https://github.com/pandas-dev/pandas.git myclonefile
 
 ---------------(git log =>extensions)-------------------------------------------
 -->to see what,when and who have changes in our repo
-$git log -p
+
+
+
 
 -->to see n number of changes in repo
 $git log -p -n
@@ -96,6 +102,11 @@ examle->$git log -p -3
 -->--format=<format>
 Pretty-print the contents of the commit logs in a given format, where <format> can be one of oneline, short, medium, full, fuller, reference, email, raw,
 example :$git log --pretty=oneline
+
+-->git config --global alias.lg "log --graph --pretty=format:'%h -%d %s (%cr) <%an>'"
+**to alias git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' with much shorter git lg.
+
+
 
 ------****(git log time)****-------
 $git log --since=2.weeks
@@ -156,6 +167,10 @@ author date, relative
 
 %at
 author date, UNIX timestamp
+
+$ git config --global alias.prettyLogHead `"log --graph --pretty=format:"%H-->%h==>%T==>%t=->%P=->%p <%an>"`
+*after this we can use==>git prettyLogHead
+*at the place of $git log --pretty=format:"%H-->%h==>%T==>%t=->%P=->%p <%an>"
 
 ---------want to change in commit->ka message and other things-->use---------
 $git commit --amend

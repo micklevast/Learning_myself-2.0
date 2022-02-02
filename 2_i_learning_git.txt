@@ -13,6 +13,8 @@ git commit -m"some message about these changes"
 3)git status #->for user to see the currect working of git-status
 
 4)git log #->to see what changes have done and when?
+5)ls      #->to see all exiting file under these directory
+6)pwd     #->to see in which directory we are
 
 ------------------------------
 #we can do untracked any particular file/directory/folder
@@ -49,11 +51,11 @@ git looks it like i) oneFile is deleted
 *********But these is true case as we have only renamed our exiting file******git realise it on staging stage*****
 <ii>-->using git changing filename=>directly take us on staging area using mv(move)
 	$git mv OldFileName.txt newFileName.txt
-	==>rename+staged
+	*==>rename+staged
 
 2)to direct delete/remove(rm) one file and also go t staging area inside git 
 -->$git rm fileName
-==>delete+staged
+*==>delete+staged
 ==>on doing so we delete one file and auto go to staged area without using  ($git add .)commond
 
 ***on doing manually in directory first we delete file -->then use $git add --a(staged)-->then $git commit -m""***long h***
